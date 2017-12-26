@@ -1,5 +1,7 @@
 import math
 def isprime(no):
+   if(no%2)==0:
+      return False
    for x in range(3,(int (math.sqrt(no))+1),2):
       if (no%x) ==0:
          return False
