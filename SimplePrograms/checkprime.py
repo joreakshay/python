@@ -9,8 +9,8 @@ def isprime(no):
 def main():
    no=eval(input("enter no:")
    if isprime(no):
-      prime("no is prime")
+      print("no is prime")
    else:
-      prime("no is not prime")
+      print("no is not prime")
 if __name__=="__main__":
    main()
