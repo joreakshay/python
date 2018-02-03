@@ -1,0 +1,4 @@
+#comment=comment
+audio=True #Comment
+HFt= False
+Gateway=True
