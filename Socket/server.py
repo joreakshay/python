@@ -7,15 +7,17 @@ def SendRecv(connection, client_address):
         print('connection from, connection is', client_address, connection)
 
         # Receive the data in small chunks and retransmit it
-        while True:
-            data = connection.recv()
-            #print('received "%s"' % data)
-            if data:
-                print('sending data back to the client')
-                connection.sendall(subprocess.check_output(data))
-            else:
-                print("no more data from", client_address)
-                break
+	while True:
+ 		data = connection.recv(30)
+		print('received "%s"' % data)
+		cmd=data.split(" ")
+		if data:
+                	print('sending data back to the client')
+			data=subprocess.check_output(tuple(cmd))
+                	connection.sendall(str(len(data))+"@"+data)
+           	else:
+                	print("no more data from", client_address)
+			break  
     finally:
         # Clean up the connection
         connection.close()
